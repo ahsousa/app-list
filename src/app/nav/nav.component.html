@@ -1,0 +1,8 @@
+<nav class="nav-categories">
+  <h2 class="nav-title" (click)="selectCategory($event)">Categories</h2>
+  <ul class="nav-menu">
+    <li *ngFor="let category of categories; let i = index" [ngClass]="{'active': i == selectedIndex}" >
+      <a (click)="selectCategory($event, i)">{{category}}</a>
+    </li>
+  </ul>
+</nav>

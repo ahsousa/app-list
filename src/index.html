@@ -6,6 +6,19 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    .app-pagination /deep/ .ngx-pagination .current {
+      background: var(--teal);
+    }
+
+    .app-pagination /deep/ .ngx-pagination .pagination-next a::after, .ngx-pagination .pagination-next.disabled::after {
+      content: '' !important;
+    }
+
+    .app-pagination /deep/ .ngx-pagination .pagination-previous a::before, .ngx-pagination .pagination-previous.disabled::before {
+      content: '' !important;
+    }
+  </style>
 </head>
 <body>
   <app-root></app-root>

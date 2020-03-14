@@ -1,0 +1,125 @@
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  max-width: 1400px;
+  margin: 2rem auto;
+
+
+  > * {
+    padding: 15px;
+  }
+
+  .apps-list {
+    flex: 1;
+    order: 2;
+    text-align: left;
+
+    .filter-container {
+      display: flex;
+      text-align: center;
+
+      input[type=search],
+      input[type=text] {
+        font-size: 1rem;
+        font-weight: 300;
+        background-clip: padding-box;
+        transition: all .2s ease;
+        outline: 0;
+        -webkit-appearance: none;
+        width: 100%;
+        resize: none;
+        padding: 1rem;
+        border: 1px solid var(--gray);
+        margin-bottom: 2rem;
+      }
+
+      input:hover, input:focus {
+        transition: all .2s ease;
+        cursor: auto;
+        border: 1px solid var(--teal);
+      }
+    }
+
+    .app-item {
+      position: relative;
+      width: 100%;
+      -webkit-transition: background 0.3s ease-in-out;
+      transition: background 0.3s ease-in-out;
+      box-shadow: 0 2px 3px 0 #e8ebed, 0 0 3px 0 #e8ebed;
+
+      .box-info {
+        transition: all 0.3s ease-in-out;
+        padding: 1.5rem;
+        flex: 1;
+        position: relative;
+        clear: both;
+        background-color: var(--white);
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(244,247,246,0.3);
+        }
+
+        &--content {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1.5rem;
+
+
+          h1 {
+            color: var(--teal);
+            font-weight: 400;
+          }
+
+          p {
+            color: var(--gray-dark);
+          }
+
+          .tags {
+            color: var(--teal);
+          }
+        }
+
+        &--footer {
+          display: flex;
+
+          ul, li {
+            display: inline-flex;
+          }
+
+          li {
+            align-items: baseline;
+            padding: 0 1rem 0 0;
+
+            span {
+              color: var(--gray-dark);
+            }
+          }
+
+          h3 {
+            font-size: 1.5rem;
+            padding: 0 .5rem;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+
+
+
+    .app-pagination {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+
+
+
+
+
+
+
