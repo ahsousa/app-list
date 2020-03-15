@@ -9,7 +9,6 @@ import { IApp }                   from '../core/interfaces/iapp';
 })
 export class AppListComponent implements OnInit {
   apps = [] as IApp[];
-  appsCopy = [] as IApp[];
   categories = [];
   filter: string;
   filteredApps = [] as IApp[];
@@ -21,8 +20,10 @@ export class AppListComponent implements OnInit {
 
   ngOnInit(): void {
     this.appService.getApps().subscribe(apps => {
+      // sort ascending order of price sum of subscription
       this.apps = apps.sort(this.compare);
-      this.appsCopy = this.apps;
+
+      // Get categories from apps
       apps.forEach(app => {
         if (app.categories) {
           app.categories.forEach(category => {
@@ -32,13 +33,14 @@ export class AppListComponent implements OnInit {
           });
         }
       });
+      // sort in alphabetic order
       this.categories.sort((a, b) => a.localeCompare(b));
     });
   }
 
   compare(a: IApp, b: IApp) {
-    let sumA = a.subscriptions.map(sub => sub.price).reduce((a, b) => a + b, 0);
-    let sumB = b.subscriptions.map(sub => sub.price).reduce((a, b) => a + b, 0);
+    const sumA = a.subscriptions.map(sub => sub.price).reduce((a, b) => a + b, 0);
+    const sumB = b.subscriptions.map(sub => sub.price).reduce((a, b) => a + b, 0);
 
     if (sumA > sumB) {
       return 1;
@@ -61,7 +63,6 @@ export class AppListComponent implements OnInit {
       }
     });
   }
-
 }
 
 
